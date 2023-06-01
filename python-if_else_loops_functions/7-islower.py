@@ -1,7 +1,5 @@
 def islower(c):
 
-    if (ord(c) >= 97 and ord(c) <= 122):
+    while ord(c) in range(97, 122):
         return True
-    else:
-        return False
-
+    return False

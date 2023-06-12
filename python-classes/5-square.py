@@ -40,7 +40,7 @@ class Square():
     def my_print(self):
 
         """print the square using '#'"""
-        for large in range(0, self.__size):
-            for index in range(0, self.__size):
+        for large in range(0, self.size):
+            for index in range(0, self.size):
                 print('#', end="")
             print()

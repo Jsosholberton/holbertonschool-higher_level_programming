@@ -46,6 +46,6 @@ class Square():
             for index in range(self.size):
                 print('#', end="")
             print()
-        
+
         if self.size == 0:
             print()

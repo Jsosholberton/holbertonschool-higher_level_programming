@@ -44,6 +44,8 @@ class Square():
     def my_print(self):
         """print the square using '#'"""
 
+        for height in range(self.position[1]):
+            print()
         for large in range(self.size):
             for space in range(self.position[0]):
                 print(" ", end="")
@@ -62,7 +64,7 @@ class Square():
 
     @position.setter
     def position(self, value):
-        """set the self.__position to value, the value must be a
+        """set the self.__size to value, the value must be a
         integer and >= 0"""
 
         self.__position = value

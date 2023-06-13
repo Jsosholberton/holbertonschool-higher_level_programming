@@ -6,7 +6,7 @@ class Square():
     """Class initiation for square"""
     def __init__(self, size=0, position=(0, 0)):
         """Definition of the class Square, the value size
-        and position must be an integer >= 0
+        must be an integer >= 0
         Args:
             size (int): private attribute
             position (tuple): private attributte
@@ -45,7 +45,7 @@ class Square():
         """print the square using '#'"""
 
         if self.size == 0:
-            print()
+                    print()
         else:
             for height in range(self.position[1]):
                 print()
@@ -68,6 +68,5 @@ class Square():
         integer and >= 0"""
 
         self.__position = value
-        if (not isinstance(value, tuple) or len(value) != 2
-           or not all(isinstance(i, int) and i > 0 for i in value)):
+        if type(value) is not tuple or value[0] < 0 or value[1] < 0:
             raise ValueError("position must be a tuple of 2 positive integers")

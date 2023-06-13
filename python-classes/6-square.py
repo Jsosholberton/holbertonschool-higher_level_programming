@@ -12,14 +12,14 @@ class Square():
             position (tuple): private attributte
         """
 
-        self.__position = position
-        self.__size = size
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
         """Return the size of the square"""
 
-        return self.__size
+        return self._size
 
     @size.setter
     def size(self, value):
@@ -31,30 +31,30 @@ class Square():
         elif value < 0:
             raise ValueError("size must be >= 0")
         else:
-            self.__size = value
+            self._size = value
 
     @property
     def position(self):
         """Return the position of the square"""
 
-        return self.__position
+        return self._position
 
     @position.setter
     def position(self, value):
         """set the self.__size to value, the value must be a
         integer and >= 0"""
-        if value is not tuple or len(value) != 2\
+        if isinstance(value, tuple) is False or len(value) != 2\
                 or isinstance(value[0], int) is False\
                 or isinstance(value[1], int) is False\
                 or value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
-            self.__position = value
+            self._position = value
 
     def area(self):
         """Return area of the square"""
 
-        return self.__size**self.__size
+        return self.size**self.size
 
     def my_print(self):
         """print the square using '#'"""

@@ -6,7 +6,7 @@ class Square():
     """Class initiation for square"""
     def __init__(self, size=0, position=(0, 0)):
         """Definition of the class Square, the value size
-        must be an integer and >= 0
+        and position must be an integer >= 0
         Args:
             size (int): private attribute
             position (tuple): private attributte
@@ -44,17 +44,17 @@ class Square():
     def my_print(self):
         """print the square using '#'"""
 
-        for height in range(self.position[1]):
-            print()
-        for large in range(self.size):
-            for space in range(self.position[0]):
-                print(" ", end="")
-            for index in range(self.size):
-                print('#', end="")
-            print()
-
         if self.size == 0:
             print()
+        else:
+            for height in range(self.position[1]):
+                print()
+            for large in range(self.size):
+                for space in range(self.position[0]):
+                    print(" ", end="")
+                for index in range(self.size):
+                    print('#', end="")
+                print()
 
     @property
     def position(self):

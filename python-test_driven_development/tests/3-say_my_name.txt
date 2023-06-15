@@ -1,0 +1,43 @@
+The ``3-say_my_name`` module
+======================
+
+Using ``say_my_name``
+-------------------
+
+Importing method:
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Now use it:
+
+Test for 'normal' runnig.
+
+    >>> say_my_name("Johnatan", "Ortiz")
+    My name is Johnatan Ortiz
+
+Test for just one name.
+    >>> say_my_name("Johnatan")
+    My name is Johnatan 
+
+Test for not values:
+    >>> say_my_name()
+    Traceback (most recent call last):
+    TypeError: say_my_name() missing 1 required positional argument: 'first_name'
+
+Test for not str into first_name variable.
+
+    >>> say_my_name(2, "Ortiz")
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+
+Test for not str into second_name variable.
+
+    >>> say_my_name("Johnatan", 2)
+    Traceback (most recent call last):
+    TypeError: last_name must be a string
+
+Test for more than 2 variables
+
+    >>> say_my_name("Johnatan", "Ortiz", "Salazar")
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given

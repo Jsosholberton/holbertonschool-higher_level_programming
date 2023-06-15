@@ -4,11 +4,11 @@
 
 def add_integer(a, b=98):
     """Adds two integer or floats a + b
-    
+
     Args:
         a (int or float): first value
         b (int or float): second value
-    
+
     Raises:
         TypeError: values must be integer
 

@@ -32,3 +32,36 @@ Test with two strings
     Traceback (most recent call last):
     TypeError: text_indentation() takes 1 positional argument but 2 were given
 
+Test using only special chars
+    >>> text_indentation("?")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+
+    >>> text_indentation(".?")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    <BLANKLINE>
+
+Test without value
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("")
+    <BLANKLINE>
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    TypeError: text must be a string

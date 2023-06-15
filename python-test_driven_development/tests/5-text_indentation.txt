@@ -1,0 +1,34 @@
+The ``5-text_indentation`` module
+======================
+
+Using ``text_indentation``
+-------------------
+
+Importing method:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Now use it:
+
+Test normal condition.
+    >>> text_indentation("Hello? this is: a test")
+    Hello?
+    <BLANKLINE>
+     this is:
+    <BLANKLINE>
+     a test
+
+Test without special chars.
+    >>> text_indentation("Hello this is a test")
+    Hello this is a test
+
+Test without str.
+    >>> text_indentation(2135)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+Test with two strings
+    >>> text_indentation("Hello? this is a test", "Hello?")
+    Traceback (most recent call last):
+    TypeError: text_indentation() takes 1 positional argument but 2 were given
+

@@ -25,4 +25,3 @@ def text_indentation(text):
         print(text[index], end="")
         if text[index] in ('.', '?', ':'):
             print('\n')
-    print()

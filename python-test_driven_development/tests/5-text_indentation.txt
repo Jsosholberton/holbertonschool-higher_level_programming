@@ -36,13 +36,11 @@ Test using only special chars
     >>> text_indentation("?")
     ?
     <BLANKLINE>
-    <BLANKLINE>
 
     >>> text_indentation(".?")
     .
     <BLANKLINE>
     ?
-    <BLANKLINE>
     <BLANKLINE>
 
     >>> text_indentation(".?:")
@@ -52,7 +50,6 @@ Test using only special chars
     <BLANKLINE>
     :
     <BLANKLINE>
-    <BLANKLINE>
 
 Test without value
     >>> text_indentation()
@@ -60,7 +57,7 @@ Test without value
     TypeError: text_indentation() missing 1 required positional argument: 'text'
 
     >>> text_indentation("")
-    <BLANKLINE>
+
 
     >>> text_indentation(None)
     Traceback (most recent call last):

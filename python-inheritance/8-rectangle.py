@@ -27,6 +27,9 @@ class BaseGeometry:
         -----
             name (str): name of the value
             value (int): value to be check
+        Return:
+        ------
+            return the value if is int and positive
         """
 
         if type(value) is not int:
@@ -34,8 +37,9 @@ class BaseGeometry:
 
         if value <= 0:
             raise ValueError("{:s} must be greater than 0".format(name))
-        
+
         return value
+
 
 class Rectangle(BaseGeometry):
     """Definition of the class Rectangle using the BaseGometry"""

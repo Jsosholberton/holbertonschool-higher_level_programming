@@ -28,7 +28,7 @@ Test for incorrect usage:
 
     >>> bg.integer_validator(10, "age")
     Traceback (most recent call last):
-    TypeError: 10 must be an integer
+    ValueError: Unknown format code 's' for object of type 'int'
 
     >>> bg.integer_validator()
     Traceback (most recent call last):

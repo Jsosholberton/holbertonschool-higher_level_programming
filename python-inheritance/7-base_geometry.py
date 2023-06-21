@@ -9,19 +9,6 @@ class BaseGeometry:
         Empty class
     """
 
-    def __init__(self, name="", value=0):
-        """
-        Description:
-        ------------
-            Initialitation of the args
-        Args:
-        ----
-            name (str): name of the value
-            value (int): value of the name
-        """
-        self.name = name
-        self.value = value
-
     def area(self):
         """
         Raises:
@@ -43,7 +30,7 @@ class BaseGeometry:
         """
 
         if type(value) is not int:
-            raise TypeError("{} must be an integer".format(name))
+            raise TypeError("{:s} must be an integer".format(name))
 
         if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
+            raise ValueError("{:s} must be greater than 0".format(name))

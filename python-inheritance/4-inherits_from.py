@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Defition of the class inherits_from"""
 
+
 def inherits_from(obj, a_class):
     """
     Description:

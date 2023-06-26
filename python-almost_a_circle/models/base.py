@@ -23,7 +23,7 @@ class Base:
             id (int): the id of the process?
         """
 
-        if id is not None:
+        if id:
             self.id = id
         else:
             Base.__nb_objects += 1

@@ -34,46 +34,46 @@ class Rectangle(Base):
 @property
 def width(self):
     """Return: his width"""
-    return self.__width
+    return self.width
 
 
 @property
 def height(self):
     """Return: his height"""
-    return self.__height
+    return self.height
 
 
 @property
 def x(self):
     """Return: his x"""
-    return self.__x
+    return self.x
 
 
 @property
 def y(self):
     """Return: his y"""
-    return self.__y
+    return self.y
 
 
 @width.setter
 def width(self, width):
     """Set the value for width"""
-    self.__width = width
+    self.width = width
 
 
 @height.setter
 def height(self, height):
     """Set the value for height"""
-    self.__height = height
+    self.height = height
 
 
 @x.setter
 def x(self, x):
     """Set the value for x"""
-    self.__x = x
+    self.x = x
 
 
 @y.setter
 def y(self, y):
     """Set the value for y"""
-    self.__y = y
+    self.y = y

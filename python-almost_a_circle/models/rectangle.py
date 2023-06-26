@@ -137,3 +137,17 @@ class Rectangle(Base):
         """
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                 self.__x, self.__y, self.__width, self.__height))
+
+    def update(self, *args):
+        """
+        Description:
+        ------------
+            Update the data of the rectangle
+        Args:
+        -----
+            args (list): list of arguments to be changed
+        """
+        args_set = ['id', 'width', 'height', 'x', 'y']
+        for index, value in enumerate(args):
+            if index < len(args_set):
+                setattr(self, args_set[index], value)

@@ -58,26 +58,26 @@ def y(self):
 @width.setter
 def width(self, value):
     """Set the value for width"""
-    if type(value) is int:
+    if type(value) is int and value > 0:
         self.__width = value
 
 
 @height.setter
 def height(self, value):
     """Set the value for height"""
-    if type(value) is int:
+    if type(value) is int and value > 0:
         self.__width = value
 
 
 @x.setter
 def x(self, value):
     """Set the value for x"""
-    if type(value) is int:
+    if type(value) is int and value > 0:
         self.__width = value
 
 
 @y.setter
 def y(self, value):
     """Set the value for y"""
-    if type(value) is int:
+    if type(value) is int and value > 0:
         self.__width = value

@@ -25,55 +25,55 @@ class Rectangle(Base):
         """
 
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
 
 @property
 def width(self):
     """Return: his width"""
-    return self.width
+    return self.__width
 
 
 @property
 def height(self):
     """Return: his height"""
-    return self.height
+    return self.__height
 
 
 @property
 def x(self):
     """Return: his x"""
-    return self.x
+    return self.__x
 
 
 @property
 def y(self):
     """Return: his y"""
-    return self.y
+    return self.__y
 
 
 @width.setter
-def width(self, width):
+def width(self, value):
     """Set the value for width"""
-    self.width = width
+    self.__width = value
 
 
 @height.setter
-def height(self, height):
+def height(self, value):
     """Set the value for height"""
-    self.height = height
+    self.__height = height
 
 
 @x.setter
-def x(self, x):
+def x(self, value):
     """Set the value for x"""
-    self.x = x
+    self.__x = value
 
 
 @y.setter
-def y(self, y):
+def y(self, value):
     """Set the value for y"""
-    self.y = y
+    self.__y = value

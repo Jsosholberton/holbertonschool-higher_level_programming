@@ -25,10 +25,10 @@ class Rectangle(Base):
         """
 
         super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        self.__width = width
+        self.__height = height
+        self.__x = x
+        self.__y = y
 
 
 @property
@@ -58,22 +58,26 @@ def y(self):
 @width.setter
 def width(self, value):
     """Set the value for width"""
-    self.__width = value
+    if type(value) is int:
+        self.__width = value
 
 
 @height.setter
 def height(self, value):
     """Set the value for height"""
-    self.__height = height
+    if type(value) is int:
+        self.__width = value
 
 
 @x.setter
 def x(self, value):
     """Set the value for x"""
-    self.__x = value
+    if type(value) is int:
+        self.__width = value
 
 
 @y.setter
 def y(self, value):
     """Set the value for y"""
-    self.__y = value
+    if type(value) is int:
+        self.__width = value

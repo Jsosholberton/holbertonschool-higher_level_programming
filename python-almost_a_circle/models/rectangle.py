@@ -19,8 +19,8 @@ class Rectangle(Base):
         -----
             width (int): width of the rectangle
             height (int): height of the rectangle
-            x (int): any
-            y (int): any
+            x (int): The position of the rectangle in the eje X
+            y (int): The position of the rectangle in the eje Y
             id (int): id of the proccess?
         """
 
@@ -120,7 +120,11 @@ class Rectangle(Base):
         ------------
             Print the representation of the rectangle using '#'
         """
+        for y in range(self.__y):
+            print()
         for index in range(self.__height):
+            for x in range(self.__x):
+                print(" ", end="")
             for i in range(self.__width):
                 print("#", end="")
             print()

@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Definition of the class 'Rectangle' by Base"""
 from models.base import Base
-import json
 
 
 class Rectangle(Base):

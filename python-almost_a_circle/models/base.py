@@ -76,3 +76,29 @@ class Base:
         if json_string is not None:
             return json.loads(json_string)
         return []
+
+    @classmethod
+    def create(cls, **dictionary):
+        """
+        Description:
+        ------------
+            create a new instance with the same value
+        Args:
+        -----
+            dictonary (dict): doble pointer to the dict work as a **kwargs
+        Return:
+        -------
+            A new instance with the same value
+        """
+        """
+        if cls.__name__ == "Rectangle":
+            cls(1, 1) <--- Rectangle need 2 arguments to work
+        else:
+            cls(1) <--- Square need 1 argument to work
+            The data inside the cls is any value >= 1 since we be update
+            in the next line
+        """
+
+        dummy = cls(152, 351) if cls.__name__ == "Rectangle" else cls(400)
+        dummy.update(**dictionary)
+        return dummy

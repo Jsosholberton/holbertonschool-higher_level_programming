@@ -138,16 +138,24 @@ class Rectangle(Base):
         return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
                 self.__x, self.__y, self.__width, self.__height))
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """
         Description:
         ------------
-            Update the data of the rectangle
+            Update the data of the rectangle attributes
         Args:
         -----
-            args (list): list of arguments to be changed
+            args (list): list of arguments to be changed (needed in orden)
+            kwargs (dict): dictionary with the attributes to be changed (the
+                           orden is not necesary)
         """
-        args_set = ['id', 'width', 'height', 'x', 'y']
-        for index, value in enumerate(args):
-            if index < len(args_set):
-                setattr(self, args_set[index], value)
+
+        if args:
+            args_set = ['id', 'width', 'height', 'x', 'y']
+            for index, value in enumerate(args):
+                if index < len(args_set):
+                    setattr(self, args_set[index], value)
+        else:
+            for name, value in kwargs.items():
+                if hasattr(self, name):
+                    setattr(self, name, value)

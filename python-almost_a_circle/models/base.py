@@ -46,9 +46,6 @@ class Base:
         Args:
         -----
             list_objs (list): list of objects to be saved
-        Return:
-        -------
-            The file printed
         """
 
         list_print = []
@@ -61,3 +58,21 @@ class Base:
         string_rep = cls.to_json_string(list_print)
         with open(name_to_save, mode='w', encoding='utf-8') as file:
             file.write(string_rep)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Description:
+        ------------
+            List of the JSON string representation
+        Args:
+        ----
+            json_string (str): is a string representing a list of dictionaries
+        Return:
+        -------
+            The list of the JSON string representation
+            """
+
+        if json_string is not None:
+            return json.loads(json_string)
+        return []

@@ -51,12 +51,13 @@ class Base:
             The file printed
         """
 
-        list_printed = []
+        list_print = []
         name_to_save = cls.__name__ + ".json"
-        if list_objs:
+
+        if list_objs is not None:
             for index_obj in list_objs:
-                dict_obj_temp = index_obj.to_dictionary()
-                list_printed.append(dict_obj_temp)
-        string_rep = cls.to_json_string(list_printed)
-        with open(name_to_save, mode='a', encoding='utf-8') as file:
-            return file.write(string_rep)
+                list_print.append(index_obj.to_dictionary())
+
+        string_rep = cls.to_json_string(list_print)
+        with open(name_to_save, mode='w', encoding='utf-8') as file:
+            file.write(string_rep)

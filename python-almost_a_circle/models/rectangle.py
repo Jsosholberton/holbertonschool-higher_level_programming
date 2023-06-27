@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Definition of the class 'Rectangle' by Base"""
 from models.base import Base
+import json
 
 
 class Rectangle(Base):
@@ -159,3 +160,8 @@ class Rectangle(Base):
             for name, value in kwargs.items():
                 if hasattr(self, name):
                     setattr(self, name, value)
+
+    def to_dictionary(self):
+        """Return an dict of the attributes of the rectangle"""
+        return {"x": self.x, "y": self.y, "id": self.id,
+                "height": self.height, "width": self.width}

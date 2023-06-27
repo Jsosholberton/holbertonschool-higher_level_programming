@@ -135,7 +135,7 @@ class Rectangle(Base):
         -----------
             Prints the information of the rectangle
         """
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
+        return ("[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
                 self.__x, self.__y, self.__width, self.__height))
 
     def update(self, *args, **kwargs):
@@ -146,7 +146,7 @@ class Rectangle(Base):
         Args:
         -----
             args (list): list of arguments to be changed (needed in orden)
-            kwargs (dict): dictionary with the attributes to be changed (the
+            kwargs (dict): Dictionary with the attributes to be changed (the
                            orden is not necesary)
         """
 

@@ -10,21 +10,31 @@ class Square(Rectangle):
         Definition of the class Square by Rectangle
     """
     def __init__(self, size, x=0, y=0, id=None):
-        """"""
+        """
+        Description:
+        ------------
+            Definition of init method
+        Args:
+        -----
+            size (int): the square size
+            x (int): The position of the square in the eje X
+            y (int): The position of the square in the eje Y
+            id (int): id of the proccess
+        """
 
         super().__init__(size, size, x, y, id)
         self.size = size
 
     @property
     def size(self):
-        """Property getter"""
-        return self.size
+        """Return: his size using width"""
+        return self.width
 
     @size.setter
     def size(self, size):
-        """Property setter"""
-        self.height = size
+        """Set the size in width and height"""
         self.width = size
+        self.height = size
 
     def __str__(self):
         """

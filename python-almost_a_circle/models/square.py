@@ -66,3 +66,7 @@ class Square(Rectangle):
             for name, value in kwargs.items():
                 if hasattr(self, name):
                     setattr(self, name, value)
+
+    def to_dictionary(self):
+        """Return an dict of the attributes of the rectangle"""
+        return {"x": self.x, "y": self.y, "id": self.id, "size": self.size}

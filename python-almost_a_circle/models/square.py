@@ -44,3 +44,25 @@ class Square(Rectangle):
         """
         return ("[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id,
                 self.x, self.y, self.width))
+
+    def update(self, *args, **kwargs):
+        """
+        Description:
+        ------------
+            Update the data of the rectangle attributes
+        Args:
+        -----
+            args (list): list of arguments to be changed (needed in orden)
+            kwargs (dict): Dictionary with the attributes to be changed (the
+                           orden is not necesary)
+        """
+
+        if args:
+            args_set = ['id', 'size', 'x', 'y']
+            for index, value in enumerate(args):
+                if index < len(args_set):
+                    setattr(self, args_set[index], value)
+        else:
+            for name, value in kwargs.items():
+                if hasattr(self, name):
+                    setattr(self, name, value)

@@ -119,8 +119,8 @@ class Base:
         file_name = cls.__name__ + ".json"
         try:
             with open(file_name, mode="r", encoding='utf-8') as file:
-                arr_dict = cls.from_json_string(file.read())
-                list_instances = [cls.create(**dictonary) for dictonary in arr_dict]
+                dic = cls.from_json_string(file.read())
+                list_instances = [cls.create(**dictonary) for dictonary in dic]
                 return list_instances
         except Exception:
             return []

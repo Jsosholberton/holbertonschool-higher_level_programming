@@ -102,3 +102,25 @@ class Base:
         dummy = cls(152, 351) if cls.__name__ == "Rectangle" else cls(400)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Description:
+        ------------
+            list of instances
+        Args:
+        -----
+            cls: instance
+        Return:
+        -------
+            a list of instances
+        """
+        file_name = cls.__name__ + ".json"
+        try:
+            with open(file_name, mode="r", encoding='utf-8') as file:
+                arr_dict = cls.from_json_string(file.read())
+                list_instances = [cls.create(**dictonary) for dictonary in arr_dict]
+                return list_instances
+        except Exception:
+            return []

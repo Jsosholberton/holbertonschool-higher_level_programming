@@ -144,3 +144,47 @@ class TestBase(unittest.TestCase):
         self.assertMultiLineEqual(str(r3), "[Rectangle] (21) 0/0 - 1/2")
         r3 = Rectangle(1, 2, 3)
         self.assertMultiLineEqual(str(r3), "[Rectangle] (22) 3/0 - 1/2")
+
+        r3.save_to_file(None)
+        with open("Rectangle.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, "[]")
+
+        r3.save_to_file([])
+        with open("Rectangle.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, "[]")
+
+        r3.save_to_file([Rectangle(1,2)])
+        with open("Rectangle.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, '[{"x": 0, "y": 0, "id": 23, "height": 2, "width": 1}]')
+
+        self.assertTrue(type(Rectangle.load_from_file()) is list)
+
+        with self.assertRaises(TypeError):
+            Square("1")
+
+        with self.assertRaises(TypeError):
+            Square(1, "2")
+
+        with self.assertRaises(TypeError):
+            Square(1, 2, "3")
+
+        s1 = Square(1, 2, 3, 4)
+        self.assertEqual(s1.size, 1)
+
+        with self.assertRaises(ValueError):
+            Square(-1)
+
+        with self.assertRaises(ValueError):
+            Square(1, -2)
+
+        with self.assertRaises(ValueError):
+            Square(1, 2, -3)
+
+        with self.assertRaises(ValueError):
+            Square(0)
+
+        new_dict = s1.to_dictionary()
+        r3 = Square.create(**new_dict)

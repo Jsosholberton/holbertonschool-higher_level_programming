@@ -44,6 +44,9 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.y, 1)
         self.assertMultiLineEqual(str(r1), "[Rectangle] (5) 1/1 - 2/2")
         self.assertTrue(r1)
+        r2 = Rectangle(1, 2)
+        self.assertEqual(r2.width, 1)
+        self.assertEqual(r2.height, 2)
 
         r1.update(12, 1, 1, 1)
         self.assertEqual(r1.id, 12)
@@ -80,14 +83,14 @@ class TestBase(unittest.TestCase):
     def test_square(self):
         """"""
         s1 = Square(3)
-        self.assertEqual(s1.id, 7)
+        self.assertEqual(s1.id, 8)
         self.assertEqual(s1.size, 3)
         self.assertEqual(s1.height, 3)
         self.assertEqual(s1.width, 3)
         self.assertEqual(s1.area(), 9)
         self.assertEqual(s1.x, 0)
         self.assertEqual(s1.y, 0)
-        self.assertMultiLineEqual(str(s1), "[Square] (7) 0/0 - 3")
+        self.assertMultiLineEqual(str(s1), "[Square] (8) 0/0 - 3")
 
         s1.update(1, 2, 3, 4)
         self.assertEqual(s1.id, 1)
@@ -104,3 +107,40 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1.y, 1)
         self.assertEqual(s1.area(), 9)
         self.assertMultiLineEqual(str(s1), "[Square] (5) 1/1 - 3")
+
+        r3 = Rectangle(1, 2, 3)
+        self.assertEqual(r3.width, 1)
+        self.assertEqual(r3.height, 2)
+        self.assertEqual(r3.x, 3)
+
+        r3 = Rectangle(1, 2, 3, 4)
+        self.assertEqual(r3.width, 1)
+        self.assertEqual(r3.height, 2)
+        self.assertEqual(r3.x, 3)
+        self.assertEqual(r3.y, 4)
+
+        with self.assertRaises(TypeError):
+            Rectangle("1", 2)
+        with self.assertRaises(TypeError):
+            Rectangle(1, "2")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, "3")
+        with self.assertRaises(TypeError):
+            Rectangle(1, 2, 3, "4")
+        with self.assertRaises(ValueError):
+            Rectangle(-1, 2)
+        with self.assertRaises(ValueError):
+            Rectangle(1, -2)
+        with self.assertRaises(ValueError):
+            Rectangle(0, 1)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 0)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, -3)
+        with self.assertRaises(ValueError):
+            Rectangle(1, 2, 3, -4)
+
+        r3 = Rectangle(1, 2)
+        self.assertMultiLineEqual(str(r3), "[Rectangle] (21) 0/0 - 1/2")
+        r3 = Rectangle(1, 2, 3)
+        self.assertMultiLineEqual(str(r3), "[Rectangle] (22) 3/0 - 1/2")

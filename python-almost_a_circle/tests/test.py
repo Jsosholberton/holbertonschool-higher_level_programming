@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Unittest for base, rectangle and square"""
 import unittest
+import json
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -26,6 +27,7 @@ class TestBase(unittest.TestCase):
         #Test for TypeError
         b1 = Base("Hi")
         self.assertEqual(b1.id, "Hi") #this need int
+        self.assertEqual(b6.load_from_file(), [])
 
     def test_rectangle(self):
         r1 = Rectangle(2, 2, 1, 1)
@@ -36,7 +38,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.display(), None)
         self.assertEqual(r1.x, 1)
         self.assertEqual(r1.y, 1)
-        self.assertTrue(r1, "[Rectangle] (4) 2/2 - 1/1")
+        self.assertMultiLineEqual(str(r1), "[Rectangle] (5) 1/1 - 2/2")
 
         r1.update(12, 1, 1, 1)
         self.assertEqual(r1.id, 12)
@@ -45,7 +47,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.x, 1)
         self.assertEqual(r1.y, 1)
         self.assertEqual(r1.area(), 1)
-        self.assertTrue(r1, "[Rectangle] (12), 1/1 - 1/1")
+        self.assertMultiLineEqual(str(r1), "[Rectangle] (12) 1/1 - 1/1")
 
         r1.update(id=100, width=3, height=2, x=2, y=3) #not import the orden
         self.assertEqual(r1.id, 100)
@@ -54,19 +56,32 @@ class TestBase(unittest.TestCase):
         self.assertEqual(r1.x, 2)
         self.assertEqual(r1.y, 3)
         self.assertEqual(r1.area(), 6)
-        self.assertTrue(r1, "[Rectangle] (100), 3/2 - 2/3")
+        self.assertMultiLineEqual(str(r1), "[Rectangle] (100) 2/3 - 3/2")
 
+        r2 = Rectangle(2, 2, 4, 5, 3)
+        new_dict = r2.to_dictionary()
+        r3 = Rectangle.create(**new_dict)
+        self.assertEqual(r3.id, 3)
+        self.assertEqual(r3.width, 2)
+        self.assertEqual(r3.height, 2)
+        self.assertEqual(r3.x, 4)
+        self.assertEqual(r3.y, 5)
+        self.assertMultiLineEqual(str(r2), "[Rectangle] (3) 4/5 - 2/2")
+        self.assertMultiLineEqual(str(r3), "[Rectangle] (3) 4/5 - 2/2")
+        self.assertFalse(r2 == r3)
+        self.assertMultiLineEqual(r2.to_json_string(new_dict), json.dumps(new_dict))
+    
     def test_square(self):
         """"""
         s1 = Square(3)
-        self.assertEqual(s1.id, 6)
+        self.assertEqual(s1.id, 7)
         self.assertEqual(s1.size, 3)
         self.assertEqual(s1.height, 3)
         self.assertEqual(s1.width, 3)
         self.assertEqual(s1.area(), 9)
         self.assertEqual(s1.x, 0)
         self.assertEqual(s1.y, 0)
-        self.assertTrue(s1, "[Rectangle] (6), 3/3 - 3")
+        self.assertMultiLineEqual(str(s1), "[Square] (7) 0/0 - 3")
 
         s1.update(1, 2, 3, 4)
         self.assertEqual(s1.id, 1)
@@ -74,7 +89,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1.x, 3)
         self.assertEqual(s1.y, 4)
         self.assertEqual(s1.area(), 4)
-        self.assertTrue(s1, "[Rectangle] (1), 2/2 - 2")
+        self.assertMultiLineEqual(str(s1), "[Square] (1) 3/4 - 2")
         
         s1.update(size=3, id=5, x=1, y=1)
         self.assertEqual(s1.id, 5)
@@ -82,4 +97,4 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1.x, 1)
         self.assertEqual(s1.y, 1)
         self.assertEqual(s1.area(), 9)
-        self.assertTrue(s1, "[Rectangle] (5), 3/3 - 3")
+        self.assertMultiLineEqual(str(s1), "[Square] (5) 1/1 - 3")

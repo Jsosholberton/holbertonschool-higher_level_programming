@@ -208,4 +208,6 @@ class TestBase(unittest.TestCase):
             str_test = file.read()
         self.assertMultiLineEqual(str_test, '[{"x": 0, "y": 0, "id": 35, "size": 1}]')
         
-        Square.create(**{'id':89, "size":1, 'x':2})
+        s_l = Square.create(**{'id':89, "size":1, 'x':2})
+        self.assertEqual(s_l.id, 89)
+        

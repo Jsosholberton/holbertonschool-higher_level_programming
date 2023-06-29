@@ -32,6 +32,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b1.from_json_string("[]"), [])
         self.assertEqual(b1.from_json_string('[{"id":5}]'), [{"id":5}])
         self.assertTrue(b1.from_json_string('[{"id":5}]'))
+        Base.from_json_string(None)
 
     def test_rectangle(self):
         r1 = Rectangle(2, 2, 1, 1)
@@ -206,6 +207,4 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as file:
             str_test = file.read()
         self.assertMultiLineEqual(str_test, '[{"x": 0, "y": 0, "id": 35, "size": 1}]')
-
-        r8 = Square(1)
-        r8.load_from_file()
+    

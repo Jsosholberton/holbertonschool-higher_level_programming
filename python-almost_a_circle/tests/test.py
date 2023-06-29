@@ -188,3 +188,24 @@ class TestBase(unittest.TestCase):
 
         new_dict = s1.to_dictionary()
         r3 = Square.create(**new_dict)
+
+        Square.save_to_file([Square(1)])
+        Square.load_from_file()
+
+        r3.save_to_file(None)
+        with open("Square.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, "[]")
+
+        r3.save_to_file([])
+        with open("Square.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, "[]")
+
+        r3.save_to_file([Square(1)])
+        with open("Square.json", "r") as file:
+            str_test = file.read()
+        self.assertMultiLineEqual(str_test, '[{"x": 0, "y": 0, "id": 35, "size": 1}]')
+
+        r8 = Square(1)
+        r8.load_from_file()

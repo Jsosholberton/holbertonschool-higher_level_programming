@@ -211,3 +211,5 @@ class TestBase(unittest.TestCase):
         s_l = Square.create(**{'id':89, "size":1, 'x':2})
         self.assertEqual(s_l.id, 89)
         
+        s_l = Square.create(**{'id':90, "size":1, 'x':2, 'y': 3})
+        self.assertEqual(s_l.id, 90)

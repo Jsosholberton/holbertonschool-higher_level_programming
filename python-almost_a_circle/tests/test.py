@@ -207,4 +207,5 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as file:
             str_test = file.read()
         self.assertMultiLineEqual(str_test, '[{"x": 0, "y": 0, "id": 35, "size": 1}]')
-    
+        
+        Square.create(**{'id':89, "size":1, 'x':2})
